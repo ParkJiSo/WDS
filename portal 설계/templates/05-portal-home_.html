@@ -1,0 +1,118 @@
+{% assign category_list_enabled = true %}
+{% assign recent_articles_enabled = true %}
+
+<div class="bt-container" data-home-page>
+  <div class="bt-container-inner">
+    {% if recent_articles_enabled %}
+      {% if portal.recent_articles.size > 0 %}
+        <div class="recent-articles" id="recent-articles">
+          <h2 class="recent-articles__title text-center">Recent articles</h2>
+          <ul class="row articles recent-articles__list">
+            {% for article in portal.recent_articles limit:6 %}
+              <li class="column column--sm-4 articles__item recent-articles-item">
+                <a class="articles__link" href="{{ article.url }}"><span class="fa fa-star"></span> {{ article.title | h }}</a>
+                <p class="recent-articles-item__excerpt meta">
+                  {{ article.body_plain | h |truncate:80 }}
+                </p>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    {% endif %}
+  </div>
+</div>
+
+<div class="bt-container bt-container--grey clearfix">
+  <div class="bt-container-inner">
+
+    <!-- CATEGORY LIST -->
+    {% if category_list_enabled %}
+      <div class="category-list-wrapper" id="category-list">
+        <h2 class="category-list-title">Knowledge base</h2>
+        <ul class="row category-list">
+          {% for category in portal.solution_categories %}
+            {% if category.folders_count > 0 %}
+              <li class="column column column--sm-6 category-list-item" id="{{category.id}}">
+                <a class="category-list-item__link" href="{{category.url}}">
+                  {% case category.id %}
+                    {% when 5000156927%}
+                      <span class="category-list-item__icon">
+                        <img src="">
+                      </span>
+                    {% when 5000029069 %}
+                      <span class="category-list-item__icon">
+                        <img src="https://raw.githubusercontent.com/wedosoft/wedosoft/main/img/freshdesk-Mark.png">
+                      </span>
+                    {% when 5000156923 %}
+                      <span class="category-list-item__icon">
+                        <img src="">
+                      </span>
+                    {% when 5000153731 %}
+                      <span class="category-list-item__icon">
+                        <img src="">
+                      </span>
+                    {% when 5000156926 %}
+                      <span class="category-list-item__icon">
+                        <img src="">
+                      </span>
+                    {% when 5000158287 %}
+                      <span class="category-list-item__icon">
+                        <img src="https://raw.githubusercontent.com/wedosoft/wedosoft/main/img/logo_lockup_cloud_rgb.png">
+                      </span>
+                    {% when 5000158708 %}
+                      <span class="category-list-item__icon">
+                        <img src="https://raw.githubusercontent.com/wedosoft/wedosoft/main/img/20140422-icon-gmail.png">
+                      </span>
+                    {% when 5000159013 %}
+                      <span class="category-list-item__icon">
+                        <img src="https://raw.githubusercontent.com/wedosoft/wedosoft/main/img/20140427_google-calendar-icon_512.png">
+                      </span>
+                    {% when 5000167241 %}
+                      <span class="category-list-item__icon">
+                        <img src="https://raw.githubusercontent.com/wedosoft/wedosoft/main/img/new-google-groups-logo.png">
+                      </span>
+                    {% when 5000159404 %}
+                      <span class="category-list-item__icon">
+                        <img src="https://raw.githubusercontent.com/wedosoft/wedosoft/main/img/20140427_Google-Drive-icon_512.png">
+                      </span>
+                    {% when 5000159921 %}
+                      <span class="category-list-item__icon">
+                        <img src="https://raw.githubusercontent.com/wedosoft/wedosoft/main/img/20140422-icon-gmail%20vault.png">
+                      </span>
+                    {% when 5000162628 %}
+                      <span class="category-list-item__icon">
+                        <img src="https://raw.githubusercontent.com/wedosoft/wedosoft/main/img/20140427_apps_sites_512.png">
+                      </span>
+                    {% when 5000165689 %}
+                      <span class="category-list-item__icon">
+                        <img src="https://raw.githubusercontent.com/wedosoft/wedosoft/main/img/20140427_google-apps-admin-panel-icon_512.png">
+                      </span>
+                    {% when 5000167040 %}
+                      <span class="category-list-item__icon">
+                        <img src="https://raw.githubusercontent.com/wedosoft/wedosoft/main/img/spanning-logo-horizontal-plain-fullcolor-reversed-rgb.png">
+                      </span>
+                    {% when 5000159108 %}
+                      <span class="category-list-item__icon">
+                        <img src="">
+                      </span>
+                    {% when 5000174466 %}
+                      <span class="category-list-item__icon">
+                        <img src="">
+                      </span>
+                    {% endcase %}
+                  <h2 class="h5 category-list-item__title">{{category.name}}</h2>
+                  <p class="meta">{{category.description}}</p>
+                </a>
+              </li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    {% endif %}
+    <!-- / CATEGORY LIST -->
+  </div>
+</div>
+<style>
+  .category-list-item__icon {width: 40px; margin-left: 20px;}
+</style>

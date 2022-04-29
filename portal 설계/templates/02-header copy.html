@@ -1,0 +1,142 @@
+{% if  portal.current_page != 'csat_survey' %}
+	<header class="topnav">
+		<div class="bt-wrapper">
+          <div class="wrapper-inner">
+            <div class="topbar-nav">
+              <div class="banner-title">
+                  {{ portal | logo }}
+                  <h1 class="ellipsis heading">{{portal.name|h}}</h1>
+              </div>
+              <nav class="banner-nav">
+                  {{ portal | welcome_navigation }}
+              		<div class="page-tabs">
+                      <div class="page no-padding {% if portal.is_not_login_page %}no-header-tabs{% endif %}">
+                        {% if portal.tabs.size > 0 %}
+                        <a data-toggle-dom="#header-tabs" href="#" data-animated="true" class="mobile-icon-nav-menu show-in-mobile"></a>
+                        <div class="nav-link" id="header-tabs">
+                           <a class="topbar_link" href="{{portal.new_ticket_url}}">티켓제출<a>
+                      </div>
+                    {% endif %}
+                  	</div>
+               	</div>
+			  </div>
+			</nav>
+          </div>
+		</div>
+	</header>
+
+
+<!-- Search and page links for the page -->
+  {% if portal.current_tab %}
+    {% if portal.current_page == 'portal_home' or portal.current_page == 'search' %}
+   		<!-- Add Jin Background -->
+      <div class="hero-bg-box">
+        <div class="hero-bg" data-hero-bg=""></div>
+   		<!-- Add Jin Background END -->
+        <div class="bt-container-inner search-box search-box--hero-unit" data-search-box>
+          {% snippet search_form %} 
+        </div>
+      </div>
+    {% endif %}
+  {% endif %}
+{% else %}
+	<header class="banner">
+		<div class="banner-wrapper">
+			<div class="banner-title">
+				{{ portal | logo : true }}
+				<h1 class="ellipsis heading">{{portal.name|h}}</h1>
+			</div>
+		</div>
+	</header>
+{% endif %}
+<style>
+  .topnav {width: 100%; z-index: 5;}
+  .bt-wrapper{padding-right: 30px; padding-left: 30px;}
+  .wrapper-inner {max-width: 1200px; margin: 0 auto; position: relative; z-index: 4;}
+  .banner .banner-title {
+    width: auto;
+    float: left;
+    margin-right: 0;
+    display: inline; 
+  }
+  .banner-title .heading {margin: 0;}
+  .page-tabs, .page-tabs .nav-link a {
+      font-weight: 600;
+      border: none;
+  }
+  .page-tabs {
+      *zoom: 1;
+      background: #ffff
+      color: #000;
+      line-height: 0px;
+      min-height: 0px;
+      box-shadow: none;
+  }
+  .banner .banner-nav {margin-top: 10px;}
+  .banner-nav a {margin-right: 0.5rem; color: #222;}
+  .banner-nav a:after {display: none;}
+  .banner .banner-nav .welcome {display: none;}
+  .page-tabs .nav-link a {margin: 0; min-width: auto;}
+  .page-tabs .nav-link a:first-child {margin-top: -12.5px;}
+  .banner-nav .banner-language-selector {margin-top: -2.5px;}
+  .banner-nav .banner-language-selector .language-options .dropdown-toggle {
+    font-size: 15px;
+    font-weight: 600;
+    color: #222;
+    margin-top: 2px;
+  }
+  
+    /* Add Jin Background CSS */
+  .hero-bg-box {
+    position: relative;
+    background: white;
+    z-index: 1;
+    width: 100%;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    overflow: hidden;
+    margin-top: 0;
+    padding: calc(255px) 15px 10%;
+  }
+  
+   .hero-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url('https://raw.githubusercontent.com/ParkJiSo/WDS/main/img/190-1905994_office-work-wallpaper-hd.jpg') no-repeat center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 30% 76%;
+    width: 100%;
+    height: 100%; 
+    z-index: 1;
+  }
+  
+  .hero-bg-box .search-box {position: relative; max-width: 720px; margin: 0 auto; z-index: 2;}
+  
+  
+  /* Add Jin Header 반응형 iPad CSS */
+  @media (max-width: 1280px) {
+    .hero-bg {background-position: 30% 80%;}
+    .hero-bg-box .search-box {top: 0px;}
+    
+  }
+
+
+  @media (max-width: 991px) {
+    .hero-bg {top: 78px;}
+  }
+  
+  /* Add Jin Header 반응형 Mobile CSS */  
+  @media (max-width: 635px) {
+    .hero-bg-box {margin-top:0;}
+    .hero-bg {top: 68px !important; background-position: -113px !important;}
+  }
+  
+  @media (max-width: 435px) {
+    .logo img {max-height: 40px !important;}
+    .hero-bg-box {padding: calc(150px + 7%) 15px 10%;}
+    .hero-bg {background: url('https://raw.githubusercontent.com/ParkJiSo/WDS/main/img/190-1905994_office-work-wallpaper-hd.jpg') no-repeat center; background-position: 33% 0% !important;}
+  }
+  
+</style>

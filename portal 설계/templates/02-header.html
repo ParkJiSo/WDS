@@ -1,0 +1,94 @@
+{% assign topbar_image = true %}
+{% assign show_alert_icon = true %}
+{% assign show_alert_close_button = true %}
+{% assign show_alert_title = false %}
+
+
+
+
+<header class="topbar {% if portal.current_page == 'portal_home' or portal.current_page == 'search' %}topbar--large{% if topbar_image %} topbar--with-image{% endif %}{% else %}topbar--small{% endif %}" data-topbar>
+  <div class="topbar__nav ">
+    <div class="bt-container">
+      <div class="bt-container-inner topbar__container-inner">
+        <div class="topbar__inner">
+          <div class="topbar__col topbar__col--logo">
+            <div class="logo-wrapper">
+              <div class="logo">
+                <a href="{{ portal.linkback_url }}">
+                  <img src="{{ portal.logo_url }}" alt="">
+                </a>
+              </div>
+              <span class="topbar__help-center-name">{{ portal.name | h }}</span>
+            </div>
+
+            <button type="button" role="button" aria-label="Toggle Navigation" class="lines-button x" data-toggle-menu> <span class="lines"></span> </button>
+          </div>
+          <div class="topbar__col topbar__menu">
+            <div class="topbar__collapse" data-menu>
+              <div class="topbar__controls {% if portal.user.id %}topbar__controls--logged-in{% else %}topbar__controls--anonymous{% endif %}" data-topbar-controls>
+                {% if portal.has_forums %}
+                  <a class="topbar__link" href="{{portal.discussions_home_url}}">{% translate portal.community_forums %}</a>
+                {% endif %}
+                <a class="topbar__link" href="{{portal.new_ticket_url}}">{% translate ticket.submit_ticket_title %}</a>
+                <a class="topbar__link" href="/support/tickets">{% translate portal.tickets.ticket_list %}</a>
+                {{ portal | welcome_navigation }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bt-alerts">
+      {% for category in portal.solution_categories %}
+        {% for folder in category.folders %}
+          {% for article_item in folder.articles %}
+            {% for tag in article_item.tags %}
+              {% if tag.name contains 'alert' %}
+                <div class="bt-alert bt-alert--{% if tag.name == 'alert_info' %}info{% endif %}{% if tag.name == 'alert_success' %}success{% endif %}{% if tag.name == 'alert_warning' %}warning{% endif %}{% if tag.name == 'alert_danger' %}danger{% endif %}" id="alert-{{ article_item.id }}">
+                  {% if show_alert_icon %}
+                    <div class="bt-alert__shape bt-alert__shape--main">
+                      <i class="bt-alert__icon bt-alert__icon--notify"></i>
+                    </div>
+                  {% endif %}
+                  <div class="bt-alert__body">
+                    {% if show_alert_title %}
+                      <div class="bt-alert__title">{{ article_item.title }}</div>
+                    {% endif %}
+                    <p>{{ article_item.body }}</p>
+                  </div>
+                  {% if show_alert_close_button %}
+                    <div class="bt-alert__shape bt-alert__shape--close">
+                      <button class="bt-alert__icon bt-alert__icon--close" aria-hidden="true"></button>
+                    </div>
+                  {% endif %}
+                </div>
+              {% endif %}
+            {% endfor %}
+          {% endfor %}
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+
+
+  <!-- Search and page links for the page -->
+  {% if portal.current_tab %}
+    {% if portal.current_page == 'portal_home' or portal.current_page == 'search' %}
+      <div class="hero-unit" data-hero-unit>
+        <div class="bt-container-inner search-box search-box--hero-unit" data-search-box>
+          <div class="intro-title">{% translate header.help_center %}</div>
+          {% snippet search_form %}
+          <div class="lt-popular-searches">
+            <span class="lt-popular-searches__label">
+             Popular Searches:
+            </span>
+            <ul class="popular-searches__list"></ul>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  {% endif %}
+
+</header>
+
+

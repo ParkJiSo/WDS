@@ -1,0 +1,388 @@
+
+
+html,
+body {
+  height: 100%;
+}
+
+html {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body {
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.5 !important;
+  color: #222;
+  background-color: #fff;
+  background-image: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+/* Add Jin New ticket input focus CSS */
+select:focus, input[type="file"]:focus, input[type="radio"]:focus, input[type="checkbox"], input[type="text"]:focus, textarea[class*="span"]:focus, input[type="email"]:focus {
+  outline: thin dotted #333;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+  outline: 0; 
+  border-color: #DADFE3 !important;
+  box-shadow: none;
+}
+textarea, input[type=text], input[type=password], input[type=datetime], input[type=datetime-local], input[type=date], input[type=month], input[type=time], input[type=week], input[type=number], input[type=email], input[type=url], input[type=search], input[type=tel], input[type=color], .uneditable-input, .redactor_box, .hc-search-input input[type=text] {border-color: #DADFE3 !important;}
+a {
+  color: #666;
+  text-decoration: none;
+}
+a:hover, a:focus {
+  color: #1b4d90;
+  text-decoration: none;
+}
+a.disabled {
+  color: #818a91;
+  cursor: default;
+}
+
+figure {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid #f1f1f1;
+  margin: 1em 0;
+  padding: 0;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  font-family: inherit;
+  font-weight: 400;
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+p,
+ul,
+ol {
+  margin: 0 0 24px;
+}
+
+h1,
+.h1 {
+  font-size: 40px;
+}
+
+h2,
+.h2 {
+  font-size: 22px;
+}
+
+h3,
+.h3 {
+  font-size: 20px;
+}
+
+h4,
+.h4 {
+  font-size: 18px;
+}
+
+h5,
+.h5 {
+  font-size: 18px;
+}
+
+h6,
+.h6 {
+  font-size: 16px;
+}
+
+li {
+  line-height: 1.5 !important;
+  list-style: none;
+}
+
+b,
+strong {
+  font-weight: 600;
+}
+
+small,
+.small {
+  font-size: 80%;
+  font-weight: normal;
+  line-height: 1;
+}
+
+dl {
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+dt,
+dd {
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-left: 0;
+}
+
+
+btn,
+button.btn.btn-primary,
+input[type=submit].btn.btn-primary,
+input[type=submit],
+input[type=reset],
+input[type=button],
+a.btn.btn-primary,
+button.btn-primary,
+.banner-nav a[href*="/login"],
+.redactor_btns_box .btn.btn-primary,
+button.btn.btn-small,
+input[type=submit].btn.btn-small,
+.article-vote .vote-up,
+.article-vote .vote-down,
+#vote-feedback-form-link,
+#ticket-filter-container .list-lead.dropdown-toggle,
+#ticket-filter-container .dropdown-toggle.help-text,
+[data-target="#export-modal"] {
+  border-radius: 4px;
+  border-width: 2px;
+  border-style: solid;
+  letter-spacing: 0;
+  font-size: 12px;
+  font-family: "Lato", sans-serif;
+  font-weight: 600 !important;
+  transition: all 0.3s ease;
+  text-shadow: none;
+  padding: 8px 8px;
+  text-transform: uppercase;
+  background-color: transparent;
+}
+.btn, .btn:hover, .btn:focus, .btn:active,
+button.btn.btn-primary,
+button.btn.btn-primary:hover,
+button.btn.btn-primary:focus,
+button.btn.btn-primary:active,
+input[type=submit].btn.btn-primary,
+input[type=submit].btn.btn-primary:hover,
+input[type=submit].btn.btn-primary:focus,
+input[type=submit].btn.btn-primary:active,
+input[type=submit],
+input[type=submit]:hover,
+input[type=submit]:focus,
+input[type=submit]:active,
+input[type=reset],
+input[type=reset]:hover,
+input[type=reset]:focus,
+input[type=reset]:active,
+input[type=button],
+input[type=button]:hover,
+input[type=button]:focus,
+input[type=button]:active,
+a.btn.btn-primary,
+a.btn.btn-primary:hover,
+a.btn.btn-primary:focus,
+a.btn.btn-primary:active,
+button.btn-primary,
+button.btn-primary:hover,
+button.btn-primary:focus,
+button.btn-primary:active,
+.banner-nav a[href*="/login"],
+.banner-nav a[href*="/login"]:hover,
+.banner-nav a[href*="/login"]:focus,
+.banner-nav a[href*="/login"]:active,
+.redactor_btns_box .btn.btn-primary,
+.redactor_btns_box .btn.btn-primary:hover,
+.redactor_btns_box .btn.btn-primary:focus,
+.redactor_btns_box .btn.btn-primary:active,
+button.btn.btn-small,
+button.btn.btn-small:hover,
+button.btn.btn-small:focus,
+button.btn.btn-small:active,
+input[type=submit].btn.btn-small,
+input[type=submit].btn.btn-small:hover,
+input[type=submit].btn.btn-small:focus,
+input[type=submit].btn.btn-small:active,
+.article-vote .vote-up,
+.article-vote .vote-up:hover,
+.article-vote .vote-up:focus,
+.article-vote .vote-up:active,
+.article-vote .vote-down,
+.article-vote .vote-down:hover,
+.article-vote .vote-down:focus,
+.article-vote .vote-down:active,
+#vote-feedback-form-link,
+#vote-feedback-form-link:hover,
+#vote-feedback-form-link:focus,
+#vote-feedback-form-link:active,
+#ticket-filter-container .list-lead.dropdown-toggle,
+#ticket-filter-container .list-lead.dropdown-toggle:hover,
+#ticket-filter-container .list-lead.dropdown-toggle:focus,
+#ticket-filter-container .list-lead.dropdown-toggle:active,
+#ticket-filter-container .dropdown-toggle.help-text,
+#ticket-filter-container .dropdown-toggle.help-text:hover,
+#ticket-filter-container .dropdown-toggle.help-text:focus,
+#ticket-filter-container .dropdown-toggle.help-text:active,
+[data-target="#export-modal"],
+[data-target="#export-modal"]:hover,
+[data-target="#export-modal"]:focus,
+[data-target="#export-modal"]:active {
+  color: #4673b4;
+  border-color: #4673b4;
+  background-color: transparent;
+  background-image: none !important;
+  box-shadow: none !important;
+  text-decoration: none;
+}
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:focus,
+button.btn.btn-primary,
+button.btn.btn-primary:hover,
+button.btn.btn-primary:active,
+button.btn.btn-primary:focus,
+input[type=submit].btn.btn-primary,
+input[type=submit].btn.btn-primary:hover,
+input[type=submit].btn.btn-primary:active,
+input[type=submit].btn.btn-primary:focus,
+input[type=submit],
+input[type=submit]:hover,
+input[type=submit]:active,
+input[type=submit]:focus,
+input[type=button].btn-primary,
+input[type=button].btn-primary:hover,
+input[type=button].btn-primary:active,
+input[type=button].btn-primary:focus,
+a.btn.btn-primary,
+a.btn.btn-primary:hover,
+a.btn.btn-primary:active,
+a.btn.btn-primary:focus,
+button.btn-primary,
+button.btn-primary:hover,
+button.btn-primary:active,
+button.btn-primary:focus,
+.banner-nav a[href*="/login"],
+.banner-nav a[href*="/login"]:hover,
+.banner-nav a[href*="/login"]:active,
+.banner-nav a[href*="/login"]:focus,
+.redactor_btns_box .btn.btn-primary,
+.redactor_btns_box .btn.btn-primary:hover,
+.redactor_btns_box .btn.btn-primary:active,
+.redactor_btns_box .btn.btn-primary:focus,
+input[type=submit].btn.btn-small,
+input[type=submit].btn.btn-small:hover,
+input[type=submit].btn.btn-small:active,
+input[type=submit].btn.btn-small:focus,
+.hc-search-button .btn.btn-primary,
+.hc-search-button .btn.btn-primary:hover,
+.hc-search-button .btn.btn-primary:active,
+.hc-search-button .btn.btn-primary:focus {
+  border-color: #68b950;
+  background-color: #68b950;
+  color: #fff;
+}
+
+.btn.disabled,
+.btn[disabled] {
+  background-color: #e8e8e8 !important;
+  border-color: #e8e8e8 !important;
+  text-shadow: none !important;
+}
+
+textarea,
+input[type=text],
+input[type=password],
+input[type=datetime],
+input[type=datetime-local],
+input[type=date],
+input[type=month],
+input[type=time],
+input[type=week],
+input[type=number],
+input[type=email],
+input[type=url],
+input[type=search],
+input[type=tel],
+input[type=color],
+.uneditable-input {
+  padding: 10px 12px;
+  color: #666666;
+  background-image: none;
+  box-shadow: none;
+}
+
+textarea,
+input[type=text],
+input[type=password],
+input[type=datetime],
+input[type=datetime-local],
+input[type=date],
+input[type=month],
+input[type=time],
+input[type=week],
+input[type=number],
+input[type=email],
+input[type=url],
+input[type=search],
+input[type=tel],
+input[type=color],
+.uneditable-input,
+.redactor_box,
+.hc-search-input input[type=text] {
+  border-color: #bdc2c5;
+  border-width: 1px;
+  border-radius: 4px;
+}
